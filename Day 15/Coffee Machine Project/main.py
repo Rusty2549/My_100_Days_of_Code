@@ -29,4 +29,13 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+chosen_drink = ""
+
+question = input("What would you like? espresso/latte/cappuccino?")
+
+
+if question in MENU:
+    chosen_drink = MENU[question]
+else:
+    print("Sorry that drink is invalid.")
 
