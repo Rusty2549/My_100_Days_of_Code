@@ -1,4 +1,21 @@
-# From Day 16 onwards, you will be creating your own PyCharm projects from scratch.
-# Instead of using templates that I have created for you.
-# It will be another step in your journey as a developer!
-# But don't worry, I will explain how to do everything in the video tutorials on Udemy.
+# from turtle import Turtle, Screen
+# timmy = Turtle()
+# print(timmy)
+# timmy.shape("turtle")
+# timmy.color("blue", "green")
+# timmy.forward(100)
+# my_screen = Screen()
+# print(my_screen.canvheight)
+#
+# my_screen.exitonclick()
+
+
+from prettytable import PrettyTable
+table = PrettyTable()
+
+table.add_column("Pokemon Name", ["Pikachu", "Squirtle", "Charmander",])
+table.add_column("Type", ["Electric", "Water", "Fire",])
+table.align = "l"
+print(table)
+
+
