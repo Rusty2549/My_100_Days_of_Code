@@ -36,16 +36,20 @@ def gather_coins():
     total += int(input("How many nickels?")) * 0.05
     total += int(input("How many pennies?")) * 0.01
     return total
-def is_resource_sufficient(chosen_drink, resources):
-    for ingredient in chosen_drink["ingredients"]:
-        if chosen_drink["ingredients"][ingredient] > resources[ingredient]:
+def is_resource_sufficient(drink, res):
+    for ingredient in drink["ingredients"]:
+        if drink["ingredients"][ingredient] > res[ingredient]:
             return False
     return True
+def make_coffee(drink_name, order_ingredients):
+    for ingredient in order_ingredients:
+        resources[ingredient] -= order_ingredients[ingredient]
+    print(f"Here is your {drink_name}☕️ , enjoy!")
 machine_is_on = True
 chosen_drink = ""
+money = 0
 while machine_is_on:
-    drink_choice = input("What would you like? espresso/latte/cappuccino? Or type 'off' to turn off the machine, or "
-                         "'report' to print out the remaining resources.")
+    drink_choice = input("What would you like? espresso/latte/cappuccino? ")
     if drink_choice == "off":
         machine_is_on = False
     elif drink_choice == "report":
@@ -54,12 +58,22 @@ while machine_is_on:
                 print(f"{key} Remaining: {value}grams")
             else:
                 print(f"{key} Remaining: {value}ml")
+        print(f"Money: {money}")
     elif drink_choice in MENU:
         chosen_drink = MENU[drink_choice]
         if is_resource_sufficient(chosen_drink, resources):
-            for ingredient in chosen_drink["ingredients"]:
-                resources[ingredient] -= chosen_drink["ingredients"][ingredient]
+            payment = gather_coins()
+            if payment >= chosen_drink["cost"]:
+                total_amount = round(payment - chosen_drink["cost"], 2)
+                money += chosen_drink["cost"]
+                make_coffee(drink_choice, chosen_drink["ingredients"])
+                print(f"Here is your change: ${total_amount}")
+            else:
+                print("Sorry, that's not enough money. Money refunded.")
+
+
         else:
             print(f"Sorry not enough resources to make your drink")
+
     else:
         print("Sorry that drink is invalid.")
