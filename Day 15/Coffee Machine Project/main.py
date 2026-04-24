@@ -66,6 +66,7 @@ while machine_is_on:
             if payment >= chosen_drink["cost"]:
                 total_amount = round(payment - chosen_drink["cost"], 2)
                 money += chosen_drink["cost"]
+                # noinspection PyTypeChecker
                 make_coffee(drink_choice, chosen_drink["ingredients"])
                 print(f"Here is your change: ${total_amount}")
             else:
