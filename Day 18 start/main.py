@@ -1,25 +1,26 @@
+import turtle
 from turtle import Turtle, Screen
 import random
 tim = Turtle()
-color = (["red", "blue", "green", "yellow", "purple", "orange", "brown", "black", "aquamarine"])
+turtle.colormode(255)
+
+def random_color():
+
+    r = random.randint(0,255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return (r, g, b)
+
 turtle_moving = True
 steps = 0
+directions = [0, 90, 180, 270]
+tim.speed(0)
 while turtle_moving:
-
-    forward_back = random.randint(1, 101)
-    right_left = random.randint(15,90)
-
-
-    moves_forward = random.choice([tim.forward, tim.back])
-    moves_left_right = random.choice([tim.right, tim.left])
-    moves_forward(forward_back)
-    moves_left_right(right_left)
-    tim.pencolor(random.choice(color))
-    steps += 1
-    if steps == 50:
-        turtle_moving = False
-
+    tim.pencolor(random_color())
+    tim.circle(100)
+    tim.right(5)
+    tim.tiltangle(10)
 
 
 screen = Screen()
-screen.exitonclick()
+screen.setup(width=1, height=1)
