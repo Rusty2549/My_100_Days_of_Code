@@ -11,9 +11,8 @@ class CarManager(Turtle):
         self.hideturtle()
         self.all_cars = []
         self.move_speed = STARTING_MOVE_DISTANCE
-
-    def spawn_car(self):
         self.car = Turtle()
+    def spawn_car(self):
         self.car.shape("square")
         self.car.shapesize(stretch_wid=1, stretch_len=2)
         self.car.penup()
