@@ -8,11 +8,13 @@ MOVE_INCREMENT = 10
 class CarManager(Turtle):
     def __init__(self):
         super().__init__()
+        self.car = None
         self.hideturtle()
         self.all_cars = []
         self.move_speed = STARTING_MOVE_DISTANCE
-        self.car = Turtle()
+
     def spawn_car(self):
+        self.car = Turtle()
         self.car.shape("square")
         self.car.shapesize(stretch_wid=1, stretch_len=2)
         self.car.penup()

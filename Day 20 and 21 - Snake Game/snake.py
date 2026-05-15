@@ -47,3 +47,9 @@ class Snake:
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
 
+    def reset(self):
+        for sqr in self.all_sqr:
+            sqr.goto(1000, 1000)
+        self.all_sqr.clear()
+        self.create_snake()
+        self.head = self.all_sqr[0]

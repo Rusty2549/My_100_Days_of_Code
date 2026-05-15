@@ -28,7 +28,7 @@ while game_is_on:
 
     car_manager.move_cars()
 
-    if player.ycor() >= 280.0 and not level_up:
+    if player.ycor() >= 280 and not level_up:
         level_up = True
         player.finish_line()
         if scoreboard.current_level == 3:
