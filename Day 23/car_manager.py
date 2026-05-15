@@ -10,7 +10,7 @@ class CarManager(Turtle):
         super().__init__()
         self.hideturtle()
         self.all_cars = []
-
+        self.move_speed = STARTING_MOVE_DISTANCE
 
     def spawn_car(self):
         self.car = Turtle()
@@ -24,7 +24,5 @@ class CarManager(Turtle):
     def move_cars(self):
         for car in self.all_cars:
             car.forward(MOVE_INCREMENT)
-
-
-
-
+    def increase_speed(self):
+        self.move_speed += MOVE_INCREMENT
