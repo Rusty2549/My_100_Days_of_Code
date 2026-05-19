@@ -32,4 +32,3 @@ user_word = input("Enter a word: ").upper()
 
 result = [nato_dict[letter] for letter in user_word]
 print(result)
-
